@@ -5,10 +5,12 @@ const modalButtonNo = document.querySelector("#no");
 
 const handleClick = () => {
     modal.style.display = "block";
+    button.style.display = "none";
 }
 
 const handleClickModalButton = () => {
     modal.style.display = "none";
+    button.style.display = "block";
 }
 
 
