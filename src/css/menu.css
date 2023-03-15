@@ -1,4 +1,10 @@
+.list-group {
+    display: none;
+}
 .row {
     display: flex;
     justify-content: center;
+}
+.list {
+    display: block;
 }
