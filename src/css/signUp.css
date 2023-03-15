@@ -152,3 +152,7 @@ cursor: pointer;
         width: 100%;
     }
 }
+
+#Login-title {
+    text-align: center;
+}
