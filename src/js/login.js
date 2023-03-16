@@ -6,6 +6,7 @@ const message = document.querySelector(".warning-message");
 const message2 = document.querySelector(".warning-message2");
 const message3 = document.querySelector(".warning-message3");
 const loginButton = document.querySelector("#login-button");
+const darkWindow = document.querySelector(".badge");
 
 const handleClickButton = () => {
     button.classList.add("row-button");
@@ -45,8 +46,25 @@ const hadleClickSubmit = (event) => {
     }
 }
 
+let count = 0;
+
+const handleClickDarkWindow = () => {
+
+        if(count % 2 === 0){
+            darkWindow.innerHTML = "light 🔄";
+            count = count + 1;
+            document.body.style.backgroundColor = "#34495e";
+        }else if(count % 2 === 1) {
+            darkWindow.innerHTML = "Dark 🔄";
+            count = count + 1;
+            document.body.style.backgroundColor = "#f5f6f7";
+        }
+        
+        console.log(count);
+}
 
 loginButton.addEventListener("click" , hadleClickSubmit);
 userInputId.addEventListener("keyup" ,handlekeyUpInputId );
 userInputPassword.addEventListener("keyup" , handlekeyUpInput);
 button.addEventListener("click" , handleClickButton);
+darkWindow.addEventListener("click" , handleClickDarkWindow);
