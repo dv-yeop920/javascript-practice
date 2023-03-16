@@ -1,16 +1,16 @@
-const button = document.querySelector("#modal-button");
-const modal = document.querySelector("#modal");
+const button = document.querySelector(".modal-button");
+const modal = document.querySelector(".modal");
 const modalButtonYes = document.querySelector("#yes");
 const modalButtonNo = document.querySelector("#no");
 
 const handleClick = () => {
-    modal.style.display = "block";
-    button.style.display = "none";
+    modal.classList.add("show-modal");
+    button.classList.add("row-button");
 }
 
 const handleClickModalButton = () => {
-    modal.style.display = "none";
-    button.style.display = "block";
+    modal.classList.remove("show-modal");
+    button.classList.remove("row-button");
 }
 
 

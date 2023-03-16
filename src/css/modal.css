@@ -1,10 +1,14 @@
-#modal {
+.modal {
     background-color: white;
     height: 300px;
     width: 500px;
     box-shadow: #00000059 0px 5px 15px;
     margin-bottom: 60px;
     display: none;
+}
+
+.show-modal {
+    display: block;
 }
 
 .yes-no {
@@ -40,7 +44,7 @@
     flex-direction: column;
 }
 
-#modal-button {
+.modal-button {
     padding: 20px 40px 20px 40px;
     background-color: #9b59b6;
     color: white;
@@ -50,4 +54,8 @@
     border-radius: 5px;
     box-shadow: #00000059 0px 5px 15px;
     cursor: pointer;
+}
+
+.row-button {
+    display: none;
 }
