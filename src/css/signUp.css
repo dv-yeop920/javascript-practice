@@ -22,12 +22,20 @@ a {
 
 /*member sign in*/
 .member {
+    visibility: hidden;
+    opacity: 0;
     width: 400px;
     /* border: 1px solid #000; */
     margin: auto; /*중앙 정렬*/
     margin-bottom: 20px;
     box-shadow: #00000059 0px 5px 15px;
     padding: 5px 25px 5px 25px;
+}
+
+.show-member {
+    opacity: 1;
+    transition: all 0.5s;
+    visibility: visible;
 }
 
 
@@ -155,4 +163,45 @@ cursor: pointer;
 
 #Login-title {
     text-align: center;
+}
+
+.login-button2 {
+    padding: 20px 40px 20px 40px;
+    background-color: #9b59b6;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    box-shadow: #00000059 0px 5px 15px;
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.button {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+}
+
+.row-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.warning-message {
+    color: rgb(180, 3, 3);
+    display: none;
+}
+
+.warning-message2 {
+    color: rgb(180, 3, 3);
+    display: none;
+}
+.warning-message3 {
+    color: rgb(180, 3, 3);
+    display: none;
 }
