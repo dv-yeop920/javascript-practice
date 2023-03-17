@@ -6,6 +6,7 @@ const modalButtonNo = document.querySelector("#no");
 const handleClick = () => {
     modal.classList.add("show-modal");
     button.classList.add("row-button");
+    return;
 }
 
 const handleClickModalButton = () => {
@@ -19,4 +20,4 @@ const handleClickModalButton = () => {
 
 modalButtonNo.addEventListener("click" , handleClickModalButton);
 modalButtonYes.addEventListener("click" , handleClickModalButton);
-button.addEventListener("click" , setTimeout(handleClick , 5000));
+button.addEventListener("click" , handleClick);
