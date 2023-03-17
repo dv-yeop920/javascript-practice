@@ -19,4 +19,4 @@ const handleClickModalButton = () => {
 
 modalButtonNo.addEventListener("click" , handleClickModalButton);
 modalButtonYes.addEventListener("click" , handleClickModalButton);
-button.addEventListener("click" , handleClick);
+button.addEventListener("click" , setTimeout(handleClick , 5000));
