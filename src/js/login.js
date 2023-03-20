@@ -5,6 +5,7 @@ const userInputPassword = document.querySelector(".userpw");
 const message = document.querySelector(".warning-message");
 const message2 = document.querySelector(".warning-message2");
 const message3 = document.querySelector(".warning-message3");
+const message4 = document.querySelector(".warning-message4");
 const loginButton = document.querySelector("#login-button");
 const darkWindow = document.querySelector(".badge");
 
@@ -14,8 +15,14 @@ const handleClickButton = () => {
 }
 
 const handlekeyUpInputId = (event) => {
-    if(event.target.value) {
+    const userIdTest = /[-]/.test(event.target.value);
+
+    if(userIdTest) {
+        message4.style.display = "block";
+    }else if(event.target.value) {
         message2.style.display = "none";
+    }else if(!userIdTest) {
+        message4.style.display = "none";
     }
 }
 
@@ -37,6 +44,7 @@ const hadleClickSubmit = (event) => {
     if(userInputId.value === ""){
         event.preventDefault();
         message2.style.display = "block";
+        message4.style.display = "none";
     }else if(userInputPassword.value === "") {
         event.preventDefault();
         message3.style.display = "block";
