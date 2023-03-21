@@ -1,0 +1,49 @@
+
+
+.slide-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.slide {
+    height: 90%;
+}
+
+.slide-box__card1 {
+    background-color: aliceblue;
+    visibility: visible;
+    width: 100%;
+    margin-left: 17px;
+}
+
+.slide-box__card2 {
+    background-color: red;
+    visibility: hidden;
+}
+
+.slide-box__card3 {
+    background-color: black;
+    visibility: hidden;
+}
+
+.slide-button {
+    font-size: large;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.back-button {
+    padding-right: 15px;
+    margin-left: 10px;
+}
+
+.pass-button {
+    padding-left: 15px;
+    margin-right: 15px;
+}
