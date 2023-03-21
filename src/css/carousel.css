@@ -4,30 +4,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 300vw;
     height: 100vh;
-
 }
 
-.slide {
-    height: 90%;
-}
 
-.slide-box__card1 {
-    background-color: aliceblue;
+
+.slide-box__card {
     visibility: visible;
     width: 100%;
-    margin-left: 17px;
+    height: 90%;
+    left: 0;
 }
 
-.slide-box__card2 {
-    background-color: red;
+.hide-card1 {
     visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
 }
 
-.slide-box__card3 {
-    background-color: black;
-    visibility: hidden;
-}
+
 
 .slide-button {
     font-size: large;
@@ -40,10 +36,29 @@
 
 .back-button {
     padding-right: 15px;
-    margin-left: 10px;
 }
 
 .pass-button {
     padding-left: 15px;
-    margin-right: 15px;
+}
+
+/*@-webkit-keyframes slide-left {
+    0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    }
+    100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    }
+}*/
+@keyframes slide-left {
+    0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    }
+    100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    }
 }
