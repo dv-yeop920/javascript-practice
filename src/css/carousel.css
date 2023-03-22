@@ -5,7 +5,6 @@
     align-items: center;
     width: 300vw;
     height: 92vh;
-
 }
 
 .slide-box__card  {
@@ -32,6 +31,11 @@
     transition: all 0.5s;
 }
 
+.card-slide4 {
+    transform: translateZ(0vw);
+    transition: all 0.5s;
+}
+
 .button {
     font-size: large;
     padding: 5px;
@@ -42,21 +46,4 @@
 }
 
 
-
-/*.slide-button {
-    font-size: large;
-    padding: 5px;
-    border-radius: 50px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    cursor: pointer;
-}
-
-.back-button {
-    padding-right: 10px;
-}
-
-.pass-button {
-    padding-left: 10px;
-}*/
 
