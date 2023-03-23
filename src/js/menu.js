@@ -18,7 +18,7 @@ const handleScrollWindow = () => {
         navbarTitle.classList.add("navbar-scroll");
         navbarTitle.style.fontSize = "20px";
         navbarTitle.style.fontWeight = "400";
-    } if(window.scrollY  <= text.scrollHeight-0) {
+    } if(!window.scrollY) {
         navbarToggler.classList.remove("navbar-scroll");
         navbarTitle.classList.remove("navbar-scroll");
         navbarTitle.style.fontSize = "30px";
@@ -28,7 +28,7 @@ const handleScrollWindow = () => {
 
 const handleScrollText = () => {
     if(text.scrollTop + text.clientHeight >= text.scrollHeight-0){
-        alert("제대로 읽으셨어요?");
+        alert("제대로 읽으셨어요?");            
     }
     if(text.scrollTop + text.clientHeight <= text.scrollHeight-10){
         return;
