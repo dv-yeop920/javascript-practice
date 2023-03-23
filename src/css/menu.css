@@ -8,7 +8,16 @@ body {
     z-index: 5;
 }
 
-
+.text {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    overflow: scroll;
+    border: 1px solid black;
+}
 
 
 .navbar-scroll {

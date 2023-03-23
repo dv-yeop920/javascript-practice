@@ -4,7 +4,7 @@ const ListName = document.querySelectorAll(".list-group-item");
 const darkWindow = document.querySelector(".badge");
 const navbarTitle = document.querySelector(".navbar-brand");
 const navbarToggler = document.querySelector(".navbar-toggler");
-
+const text = document.querySelector(".text");
 
 const handleClickMenu = () => {
     menuList.classList.toggle("show-list");
@@ -18,11 +18,20 @@ const handleScrollWindow = () => {
         navbarTitle.classList.add("navbar-scroll");
         navbarTitle.style.fontSize = "20px";
         navbarTitle.style.fontWeight = "400";
-    } if(!window.scrollY) {
+    } if(window.scrollY  <= text.scrollHeight-0) {
         navbarToggler.classList.remove("navbar-scroll");
         navbarTitle.classList.remove("navbar-scroll");
         navbarTitle.style.fontSize = "30px";
         navbarTitle.style.fontWeight = "500";
+    }
+}
+
+const handleScrollText = () => {
+    if(text.scrollTop + text.clientHeight >= text.scrollHeight-0){
+        alert("제대로 읽으셨어요?");
+    }
+    if(text.scrollTop + text.clientHeight <= text.scrollHeight-10){
+        return;
     }
 }
 
@@ -48,3 +57,4 @@ const handleClickDarkWindow = () => {
 menuButton.addEventListener("click" , handleClickMenu);
 darkWindow.addEventListener("click" , handleClickDarkWindow);
 window.addEventListener("scroll" , handleScrollWindow);
+text.addEventListener("scroll" , handleScrollText);
