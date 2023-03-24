@@ -8,8 +8,18 @@ const tabList  = document.querySelector(".list");
 const tabButton = document.querySelectorAll(".tab-button");
 const content = document.querySelectorAll(".tab-content");
 
-
 const handleClickTab = (event) => {
+    tabButton.forEach((button, index) => {
+        if (button === event.target) {
+            button.classList.add("blue");
+            content[index].classList.add("show");
+        } else {
+            button.classList.remove("blue");
+            content[index].classList.remove("show");
+        }
+    });
+};
+/*const handleClickTab = (event) => {
         if(event.target === tabButton[1]) {
             tabButton[0].classList.remove("blue");
             content[0].classList.remove("show");
@@ -34,6 +44,6 @@ const handleClickTab = (event) => {
             tabButton[2].classList.add("blue");
             content[2].classList.add("show");
         }
-}
+}*/
 
 tabList.addEventListener("click" , handleClickTab);
