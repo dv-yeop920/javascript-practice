@@ -14,11 +14,15 @@ const handleClickMenu = () => {
 const handleScrollWindow = () => {
     if(window.scrollY) {
         //스크롤바를 얼마나 내렸는지 측정
+        navbarTitle.classList.remove("navbar-scroll-up");
+        navbarToggler.classList.remove("navbar-scroll-up");
         navbarToggler.classList.add("navbar-scroll");
         navbarTitle.classList.add("navbar-scroll");
         navbarTitle.style.fontSize = "20px";
         navbarTitle.style.fontWeight = "400";
-    } if(!window.scrollY) {
+    } if(window.scrollY < 50) {
+        navbarTitle.classList.add("navbar-scroll-up");
+        navbarToggler.classList.add("navbar-scroll-up");
         navbarToggler.classList.remove("navbar-scroll");
         navbarTitle.classList.remove("navbar-scroll");
         navbarTitle.style.fontSize = "30px";
