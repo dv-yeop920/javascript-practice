@@ -11,10 +11,25 @@ const products = [
 const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
 
-for(let i = 0; i <= title.length; i++) {
+for(let i = 0; i < title.length; i++) {
         title[i].innerHTML = products[i].title;
         price[i].innerHTML = products[i].price;
+        
 }
+
+//---------------------------------------------------------
+
+const select = document.querySelectorAll(".form-select");
+const sizeTitle = document.querySelector(".size-title");
+
+const hadleClickOption = (event) => {
+    if(event.target.value === "셔츠") {
+        sizeTitle.classList.remove("hide");
+        select[1].classList.remove("hide");
+    }
+}
+//select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
+select[0].addEventListener("input" , hadleClickOption);
 
 
 
