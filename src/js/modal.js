@@ -8,20 +8,23 @@ const modalBackGround = document.querySelector(".black-bg");
 
 const handleClick = () => {
     modal.classList.add("show-modal");
-    button.classList.add("row-button");
     modalBackGround.classList.add("show-modal");
+    button.classList.add("row-button");
     return;
 }
 
 const handleClickModalButton = () => {
     modal.classList.remove("show-modal");
     button.classList.remove("row-button");
+    modalBackGround.classList.remove("show-modal");
 }
 
-const handleClickBody = () => {
-    modal.classList.remove("show-modal");
-    button.classList.remove("row-button");
-    modalBackGround.classList.remove("show-modal");
+const handleClickBody = (event) => {
+    if(event.target === modalBackGround) {
+        modal.classList.remove("show-modal");
+        button.classList.remove("row-button");
+        modalBackGround.classList.remove("show-modal");
+    }
 }
 
 

@@ -1,22 +1,27 @@
 
 
 .black-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
     opacity: 0;
-    visibility: hidden;
-    height: 675px;
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    transition: all 0.5s;
+    width: 100%;
+    height: 100vh;
 }
+
 .modal {
     background-color: white;
     height: 300px;
     width: 500px;
     box-shadow: #00000059 0px 5px 15px;
-    visibility: hidden;
     opacity: 0;
     transition: all 0.5s;
     margin-bottom: 50px;
-    z-index: 1;
 }
 
 .show-modal {
@@ -51,12 +56,7 @@
 }
 
 
-#containor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+
 
 
 .modal-button {
