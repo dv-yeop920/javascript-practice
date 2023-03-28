@@ -8,7 +8,9 @@ const tabList  = document.querySelector(".list");
 const tabButton = document.querySelectorAll(".tab-button");
 const content = document.querySelectorAll(".tab-content");
 
+
 const handleClickTab = (event) => {
+    //forEach 문을 사용한 탭 기능
     tabButton.forEach((button, index) => {
         if (button === event.target) {
             button.classList.add("blue");
@@ -18,8 +20,12 @@ const handleClickTab = (event) => {
             content[index].classList.remove("show");
         }
     });
-};
+}
+
+tabList.addEventListener("click" , handleClickTab);
+
 /*const handleClickTab = (event) => {
+    완전 하드코딩
         if(event.target === tabButton[1]) {
             tabButton[0].classList.remove("blue");
             content[0].classList.remove("show");
@@ -46,4 +52,3 @@ const handleClickTab = (event) => {
         }
 }*/
 
-tabList.addEventListener("click" , handleClickTab);
