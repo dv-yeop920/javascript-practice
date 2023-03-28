@@ -24,8 +24,33 @@ const sizeTitle = document.querySelector(".size-title");
 
 const hadleClickOption = (event) => {
     if(event.target.value === "셔츠") {
+        const option = [
+        "<option>M</option>",
+        "<option>L</option>",
+        "<option>XL</option>",
+        "<option>XXL</option>"];
+
         sizeTitle.classList.remove("hide");
         select[1].classList.remove("hide");
+        select[1].innerHTML = option;
+    }
+    if(event.target.value === "바지") {
+        const option = [
+        "<option>28</option>",
+        "<option>30</option>",
+        "<option>32</option>"];
+        sizeTitle.classList.remove("hide");
+        select[1].classList.remove("hide");
+        select[1].innerHTML = option;
+    }
+    if(event.target.value === "모자") {
+        const option = [
+        "<option>M</option>",
+        "<option>L</option>",
+        "<option>XL</option>"];
+        sizeTitle.classList.remove("hide");
+        select[1].classList.remove("hide");
+        select[1].innerHTML = option;
     }
 }
 //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
