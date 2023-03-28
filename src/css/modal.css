@@ -1,13 +1,22 @@
 
+
+.black-bg {
+    opacity: 0;
+    visibility: hidden;
+    height: 675px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
 .modal {
     background-color: white;
     height: 300px;
     width: 500px;
     box-shadow: #00000059 0px 5px 15px;
-    margin-bottom: 60px;
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s;
+    margin-bottom: 50px;
+    z-index: 1;
 }
 
 .show-modal {
@@ -30,9 +39,9 @@
 
 #text {
     text-align: center;
+    padding-top: 60px;
+    margin-bottom: 70px;
     text-shadow: 0.5px 0.5px 0.5px violet;
-    margin-top: 50px;
-    margin-bottom: 80px;
 }
 
 #button {
@@ -49,10 +58,6 @@
     flex-direction: column;
 }
 
-.black-bg {
-    background-color: black;
-    z-index: 1;
-}
 
 .modal-button {
     padding: 20px 40px 20px 40px;
