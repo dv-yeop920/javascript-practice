@@ -23,34 +23,32 @@ const select = document.querySelectorAll(".form-select");
 const sizeTitle = document.querySelector(".size-title");
 
 const hadleClickOption = (event) => {
-    if(event.target.value === "셔츠") {
-        const option = [
-        "<option>M</option>",
-        "<option>L</option>",
-        "<option>XL</option>",
-        "<option>XXL</option>"];
-
-        sizeTitle.classList.remove("hide");
-        select[1].classList.remove("hide");
-        select[1].innerHTML = option;
-    }
-    if(event.target.value === "바지") {
-        const option = [
-        "<option>28</option>",
-        "<option>30</option>",
-        "<option>32</option>"];
-        sizeTitle.classList.remove("hide");
-        select[1].classList.remove("hide");
-        select[1].innerHTML = option;
-    }
     if(event.target.value === "모자") {
-        const option = [
-        "<option>M</option>",
-        "<option>L</option>",
-        "<option>XL</option>"];
-        sizeTitle.classList.remove("hide");
-        select[1].classList.remove("hide");
-        select[1].innerHTML = option;
+        const option = ["S" , "M" , "L" , "XL" , "XXL"];
+        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
+    }
+
+    if(event.target.value === "셔츠") {
+        const option = ["S" , "M" , "L" , "XL" , "XXL"];
+        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
+        /* forEach 문으로 표시
+        option.forEach(item => {
+            const newOption = document.createElement("option");
+            newOption.innerHTML = item;
+            select[1].appendChild(newOption);
+        })*/
+
+        /*for of 문으로 표시 
+        for(const item of option) {
+            const newOption = document.createElement("option");
+            newOption.textContent = item;
+            select[1].appendChild(newOption);
+        }*/
+    }
+
+    if(event.target.value === "바지") {
+        const option = [28,30,32,34,36];
+        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
     }
 }
 //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
