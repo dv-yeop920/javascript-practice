@@ -76,7 +76,10 @@ const handleClickPruductButton = (event) => {
 
 productsButton.addEventListener("click" , handleClickPruductButton);
 
-
+/*
+1. for문 반복 말고 ap 으로 컴포넌트 리스트 화면에 뽑아주는걸로 바꾸기
+2. 다시 전체 보기 버튼 기능 꼭 만들기
+3. 6만원 가격대 보는데 다른 버튼 누를때 6만원을 벗어나도 보이는 문제 해결 해야함  */
 
 
 //---------------------------------------------------------
