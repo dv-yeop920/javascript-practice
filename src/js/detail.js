@@ -14,8 +14,8 @@ const products = [
 const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
 const productsButton = document.querySelector("#btn-box");
-//const priceButtonDown = document.querySelector("#price-button");
-//const priceButtonUp = document.querySelector("#price-button2");
+const card = document.querySelectorAll(".card");
+
 
 //기본 정렬 상태 
 for(let i = 0; i < title.length; i++) {
@@ -56,22 +56,25 @@ const handleClickPruductButton = (event) => {
         }
     }
     if(event.target.id === "price-button4") {
-        for(let i = 0; i < title.length; i++) {
-            products.filter(item => {
-                if(item.price < 60000) {
-                    return 
-                }
-            })
-            title[i].innerHTML = products[i].title;
-            price[i].innerHTML = products[i].price;
+        const filteredProducts = products.filter(item => item.price <= 60000);
+        for (let i = 0; i < title.length; i++) {
+            if (filteredProducts[i]) {
+                // 필터링된 결과가 있는 경우 해당 요소들을 보이게 함
+                title[i].innerHTML = filteredProducts[i].title;
+                price[i].innerHTML = filteredProducts[i].price;
+                event.target.innerHTML = "다시 전체 보기";
+            }else if(!filteredProducts[i]) {
+                // 필터링된 결과가 없는 경우 해당 요소들을 숨김
+                card[i].style.display = "none";
+                card[i].style.display = "none";
+            }
         }
     }
 }
 
 
+
 productsButton.addEventListener("click" , handleClickPruductButton);
-//priceButtonDown.addEventListener("click" , handleClickPriceButtonUpAndDown);
-//priceButtonUp.addEventListener("click" , handleClickPriceButtonUpAndDown);
 
 
 

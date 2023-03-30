@@ -12,7 +12,16 @@ body {
     margin-top: 20px;
 }
 
-.card-group{
-    width: 100%;
-    height: 30%;
+.card {
+    margin: 5px;
+    width: 30%;
+    height: 20%;
+}
+
+.show {
+    visibility: visible;
+}
+
+.row {
+    visibility: hidden;
 }
