@@ -12,10 +12,18 @@ const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
 
 for(let i = 0; i < title.length; i++) {
+        products.sort((a,b)=> {
+            return a.price - b.price;
+        });
+        
         title[i].innerHTML = products[i].title;
         price[i].innerHTML = products[i].price;
         
 }
+
+
+
+
 
 //---------------------------------------------------------
 
@@ -48,11 +56,15 @@ const hadleClickOption = (event) => {
 
     if(event.target.value === "바지") {
         const option = [28,30,32,34,36];
-        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
+        select[1].innerHTML = option.map(item =>`<option>${item}</option>`).join("");
     }
 }
 //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
 select[0].addEventListener("input" , hadleClickOption);
+
+//-----------------------------------------
+
+
 
 
 
