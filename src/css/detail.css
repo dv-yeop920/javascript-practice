@@ -3,3 +3,8 @@
 body {
     height: 200vh;
 }
+
+#price-button {
+    margin-left: 70px;
+    margin-top: 30px;
+}

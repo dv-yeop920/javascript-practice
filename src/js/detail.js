@@ -10,16 +10,29 @@ const products = [
 
 const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
+const priceButton = document.querySelector("#price-button");
 
+//기본 정렬 상태 
 for(let i = 0; i < title.length; i++) {
+
+    title[i].innerHTML = products[i].title;
+    price[i].innerHTML = products[i].price;
+    
+}
+
+//버튼 클릭시 가격순으로 한번 더 정렬
+const handleClickPriceButton = () => {
+    for(let i = 0; i < title.length; i++) {
         products.sort((a,b)=> {
             return a.price - b.price;
         });
-        
         title[i].innerHTML = products[i].title;
         price[i].innerHTML = products[i].price;
         
 }
+}
+
+priceButton.addEventListener("click" , handleClickPriceButton);
 
 
 
