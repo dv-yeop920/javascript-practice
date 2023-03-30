@@ -5,13 +5,17 @@
 const products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
-    { id : 2, price : 60000, title : 'Black Monastery' }
+    { id : 2, price : 60000, title : 'Black Monastery' },
+    { id : 3, price : 35000, title : 'Cup' },
+    { id : 4, price : 20000, title : 'Glass' },
+    { id : 5, price : 100000, title : 'Note' }
 ]
 
 const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
-const priceButtonDown = document.querySelector("#price-button");
-const priceButtonUp = document.querySelector("#price-button2");
+const productsButton = document.querySelector("#btn-box");
+//const priceButtonDown = document.querySelector("#price-button");
+//const priceButtonUp = document.querySelector("#price-button2");
 
 //기본 정렬 상태 
 for(let i = 0; i < title.length; i++) {
@@ -22,7 +26,7 @@ for(let i = 0; i < title.length; i++) {
 }
 
 //버튼 클릭시 가격순으로 한번 더 정렬
-const handleClickPriceButtonUpAndDown = (event) => {
+const handleClickPruductButton = (event) => {
     if(event.target.id === "price-button") {
             for(let i = 0; i < title.length; i++) {
                 products.sort((a,b)=> {
@@ -41,12 +45,33 @@ const handleClickPriceButtonUpAndDown = (event) => {
             price[i].innerHTML = products[i].price;
         }
     }
+    if(event.target.id === "price-button3") {
+        for(let i = 0; i < title.length; i++) {
+            products.sort((a,b)=> {
+                //localeCompare 메소드는 문자열의 크기를 정렬해줌
+                return  a.title.localeCompare(b.title);
+            });
+            title[i].innerHTML = products[i].title;
+            price[i].innerHTML = products[i].price;
+        }
+    }
+    if(event.target.id === "price-button4") {
+        for(let i = 0; i < title.length; i++) {
+            products.filter(item => {
+                if(item.price < 60000) {
+                    return 
+                }
+            })
+            title[i].innerHTML = products[i].title;
+            price[i].innerHTML = products[i].price;
+        }
+    }
 }
 
 
-
-priceButtonDown.addEventListener("click" , handleClickPriceButtonUpAndDown);
-priceButtonUp.addEventListener("click" , handleClickPriceButtonUpAndDown);
+productsButton.addEventListener("click" , handleClickPruductButton);
+//priceButtonDown.addEventListener("click" , handleClickPriceButtonUpAndDown);
+//priceButtonUp.addEventListener("click" , handleClickPriceButtonUpAndDown);
 
 
 
