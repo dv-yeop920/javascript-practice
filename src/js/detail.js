@@ -18,12 +18,15 @@ const card = document.querySelectorAll(".card");
 
 
 //기본 정렬 상태 
-for(let i = 0; i < title.length; i++) {
-
-    title[i].innerHTML = products[i].title;
-    price[i].innerHTML = products[i].price;
-    
+const render = () => {
+    for(let i = 0; i < title.length; i++) {
+        title[i].innerHTML = products[i].title;
+        price[i].innerHTML = products[i].price;
+    }
 }
+
+render();
+
 
 //버튼 클릭시 가격순으로 한번 더 정렬
 const handleClickPruductButton = (event) => {
@@ -32,8 +35,7 @@ const handleClickPruductButton = (event) => {
                 products.sort((a,b)=> {
                     return a.price - b.price;
                 });
-                title[i].innerHTML = products[i].title;
-                price[i].innerHTML = products[i].price;
+                render();
             }
     }
     if(event.target.id === "price-button2") {
@@ -41,8 +43,7 @@ const handleClickPruductButton = (event) => {
             products.sort((a,b)=> {
                 return b.price - a.price;
             });
-            title[i].innerHTML = products[i].title;
-            price[i].innerHTML = products[i].price;
+            render();
         }
     }
     if(event.target.id === "price-button3") {
@@ -51,8 +52,7 @@ const handleClickPruductButton = (event) => {
                 //localeCompare 메소드는 문자열의 크기를 정렬해줌
                 return  a.title.localeCompare(b.title);
             });
-            title[i].innerHTML = products[i].title;
-            price[i].innerHTML = products[i].price;
+            render();
         }
     }
     if(event.target.id === "price-button4") {
@@ -90,12 +90,14 @@ const sizeTitle = document.querySelector(".size-title");
 const hadleClickOption = (event) => {
     if(event.target.value === "모자") {
         const option = ["S" , "M" , "L" , "XL" , "XXL"];
-        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
+        select[1].innerHTML = option.map(item =>  
+            `<option>${item}</option>`).join("");
     }
 
     if(event.target.value === "셔츠") {
         const option = ["S" , "M" , "L" , "XL" , "XXL"];
-        select[1].innerHTML = option.map(item =>  `<option>${item}</option>`).join("");
+        select[1].innerHTML = option.map(item =>  
+            `<option>${item}</option>`).join("");
         /* forEach 문으로 표시
         option.forEach(item => {
             const newOption = document.createElement("option");
@@ -113,7 +115,8 @@ const hadleClickOption = (event) => {
 
     if(event.target.value === "바지") {
         const option = [28,30,32,34,36];
-        select[1].innerHTML = option.map(item =>`<option>${item}</option>`).join("");
+        select[1].innerHTML = option.map(item =>  
+            `<option>${item}</option>`).join("");
     }
 }
 //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
