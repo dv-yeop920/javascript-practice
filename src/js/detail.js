@@ -15,17 +15,38 @@ const title = document.querySelectorAll(".title");
 const price = document.querySelectorAll(".price");
 const productsButton = document.querySelector("#btn-box");
 const card = document.querySelectorAll(".card");
+const container = document.querySelector(".card-group");
+
 
 
 //기본 정렬 상태 
+
+
+
 const render = () => {
+    let template = products.map((item) => {
+    return `
+    <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+        <h5 class="title" data-id="0">${item.title}</h5>
+        <p class="price" data-price="0">${item.price}</p>
+        <button class="btn btn-danger">주문하기</button>
+    </div>
+    </div>`;
+
+    }).join("");
+    container.innerHTML = template;
+}
+
+render();
+
+const rendering = () => {
     for(let i = 0; i < title.length; i++) {
         title[i].innerHTML = products[i].title;
         price[i].innerHTML = products[i].price;
     }
 }
-
-render();
 
 
 //버튼 클릭시 가격순으로 한번 더 정렬
@@ -35,7 +56,7 @@ const handleClickPruductButton = (event) => {
                 products.sort((a,b)=> {
                     return a.price - b.price;
                 });
-                render();
+                rendering();
             }
     }
     if(event.target.id === "price-button2") {
@@ -43,7 +64,7 @@ const handleClickPruductButton = (event) => {
             products.sort((a,b)=> {
                 return b.price - a.price;
             });
-            render();
+            rendering();
         }
     }
     if(event.target.id === "price-button3") {
@@ -52,7 +73,7 @@ const handleClickPruductButton = (event) => {
                 //localeCompare 메소드는 문자열의 크기를 정렬해줌
                 return  a.title.localeCompare(b.title);
             });
-            render();
+            rendering();
         }
     }
     if(event.target.id === "price-button4") {
