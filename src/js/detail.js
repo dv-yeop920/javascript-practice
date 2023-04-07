@@ -46,11 +46,14 @@ function App() {
         const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
         const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
     
-         // 이미 주문 목록에 동일한 제품이 있는지 확인
         const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
+        
+        // 이미 주문 목록에 동일한 제품이 있는지 확인해서 맞으면 if문 실행 아니면 else문 실행
         if (existingItem) {
+            //아래 span 요소 가져오기 
             const quantityElement = existingItem.querySelector('.quantity');
-            const quantity = parseInt(quantityElement.textContent, 10);
+            //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
+            const quantity = parseInt(quantityElement.textContent);
             quantityElement.textContent = quantity + 1; // 수량 증가
         } else {
             // 주문 목록에 추가
@@ -111,7 +114,6 @@ function App() {
                         }).join("");
                         container.innerHTML = template;
         }
-        return;
     }
 
 
