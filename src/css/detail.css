@@ -24,3 +24,8 @@ body {
 .row {
     visibility: hidden;
 }
+
+.shopping-title {
+    margin-top: 30px;
+    text-align: center;
+}

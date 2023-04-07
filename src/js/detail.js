@@ -27,7 +27,7 @@ function App() {
         <div class="card-body">
             <h5 class="title" data-id="0">${item.title}</h5>
             <p class="price" data-price="0">${item.price}</p>
-            <button class="btn btn-danger">주문하기</button>
+            <button class="order btn-danger">주문하기</button>
         </div>
         </div>`;
         }).join("");
@@ -73,7 +73,7 @@ function App() {
                         <div class="card-body">
                             <h5 class="title" data-id="0">${item.title}</h5>
                             <p class="price" data-price="0">${item.price}</p>
-                            <button class="btn btn-danger">주문하기</button>
+                            <button class="order btn-danger">주문하기</button>
                         </div>
                         </div>`;
                     
@@ -85,6 +85,27 @@ function App() {
     
     productsButton.addEventListener("click" , handleClickPruductButton);
     render();
+
+    //--------------장바구니-----------------------------------------
+
+    const orderButton = document.querySelector(".order");
+    const MenuList = document.querySelector(".shopping-box");
+
+    const handleClickOrderButton = () => {
+        let template = products.map((item) => {
+            return `
+            <div class="shopping-list-box">
+                <ul class="shopping list">
+                    <li class="list">
+                        ${item.title}
+                    </li>
+                </ul>
+            </div>
+            `;
+            }).join("");
+            MenuList.innerHTML = template;
+    }
+    orderButton.addEventListener("click" , handleClickOrderButton);
     
     //-----------------selecter----------------------------------------
     
