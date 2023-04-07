@@ -20,7 +20,7 @@ function App() {
     
     //기본 정렬 상태 
     const render = () => {
-        let template = products.map((item) => {
+        const template = products.map((item) => {
         return `
         <div class="card">
         <img src="https://via.placeholder.com/600">
@@ -33,9 +33,39 @@ function App() {
         }).join("");
         container.innerHTML = template;
     }
+
+    render();
+
+//--------------장바구니-----------------------------------------
+
+//주문 하기 버튼 
+    const orderButton = document.querySelectorAll(".order");
+    const MenuList = document.querySelector(".shopping-list-box");
+
+    const handleClickOrderButton = (event) => {
+        const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
+        const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
     
+         // 이미 주문 목록에 동일한 제품이 있는지 확인
+        const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
+        if (existingItem) {
+            const quantityElement = existingItem.querySelector('.quantity');
+            const quantity = parseInt(quantityElement.textContent, 10);
+            quantityElement.textContent = quantity + 1; // 수량 증가
+        } else {
+            // 주문 목록에 추가
+            const template = `
+                <li class="list" data-title="${title}">
+                    ${title}
+                    <span class="quantity">1</span> 개
+                </li>
+            `;
+            MenuList.innerHTML += template;
+        }
+    };
     
-    //버튼 클릭시 가격순으로 한번 더 정렬
+
+    //가격정렬 버튼
     const handleClickPruductButton = (event) => {
 
         if(event.target.id === "price-button") {
@@ -43,6 +73,7 @@ function App() {
                 return a.price - b.price;
             });
             render();
+            
         }
 
         if(event.target.id === "price-button2") {
@@ -66,7 +97,7 @@ function App() {
                     return item.price <= 60000
                 });
 
-            let template = filteredProducts.map((item) => {
+            const template = filteredProducts.map((item) => {
 
                         return `<div class="card">
                         <img src="https://via.placeholder.com/600">
@@ -80,33 +111,22 @@ function App() {
                         }).join("");
                         container.innerHTML = template;
         }
+        return;
     }
-    
-    
+
+
+
+
+
+
+    for(let i = 0 ; i < products.length; i++) {
+        orderButton[i].addEventListener("click" , handleClickOrderButton);
+        orderButton[i].setAttribute('data-index', i); // 각 버튼에 인덱스 값을 설정하기
+    }
     productsButton.addEventListener("click" , handleClickPruductButton);
-    render();
 
-    //--------------장바구니-----------------------------------------
 
-    const orderButton = document.querySelector(".order");
-    const MenuList = document.querySelector(".shopping-box");
 
-    const handleClickOrderButton = () => {
-        let template = products.map((item) => {
-            return `
-            <div class="shopping-list-box">
-                <ul class="shopping list">
-                    <li class="list">
-                        ${item.title}
-                    </li>
-                </ul>
-            </div>
-            `;
-            }).join("");
-            MenuList.innerHTML = template;
-    }
-    orderButton.addEventListener("click" , handleClickOrderButton);
-    
     //-----------------selecter----------------------------------------
     
     const select = document.querySelectorAll(".form-select");
