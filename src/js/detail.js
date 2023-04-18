@@ -35,37 +35,6 @@ function App() {
     }
 
     render();
-
-//--------------장바구니-----------------------------------------
-
-//주문 하기 버튼 
-    const orderButton = document.querySelectorAll(".order");
-    const MenuList = document.querySelector(".shopping-list-box");
-
-    const handleClickOrderButton = (event) => {
-        const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
-        const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
-    
-        const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
-        
-        // 이미 주문 목록에 동일한 제품이 있는지 확인해서 맞으면 if문 실행 아니면 else문 실행
-        if (existingItem) {
-            //아래 span 요소 가져오기 
-            const quantityElement = existingItem.querySelector('.quantity');
-            //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
-            const quantity = parseInt(quantityElement.textContent);
-            quantityElement.textContent = quantity + 1; // 수량 증가
-        } else {
-            // 주문 목록에 추가
-            const template = `
-                <li class="list" data-title="${title}">
-                    ${title}
-                    <span class="quantity">1</span> 개
-                </li>
-            `;
-            MenuList.innerHTML += template;
-        }
-    };
     
 
     //가격정렬 버튼
@@ -75,8 +44,7 @@ function App() {
             products.sort((a,b)=> {
                 return a.price - b.price;
             });
-            render();
-            
+            render();  
         }
 
         if(event.target.id === "price-button2") {
@@ -116,16 +84,46 @@ function App() {
         }
     }
 
+    //--------------장바구니-----------------------------------------
 
+//주문 하기 버튼 
+    const orderButton = document.querySelectorAll(".order");
+    const MenuList = document.querySelector(".shopping-list-box");
+    
+    const handleClickOrderButton = (event) => {
+        let menu = [];
+        const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
+        const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
 
+        const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
 
+        // 이미 주문 목록에 동일한 제품이 있는지 확인해서 맞으면 if문 실행 아니면 else문 실행
+        if (existingItem) {
+            //아래 span 요소 가져오기 
+            const quantityElement = existingItem.querySelector('.quantity');
+            //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
+            const quantity = parseInt(quantityElement.textContent);
+            quantityElement.textContent = quantity + 1; // 수량 증가
+            const joson = JSON.stringify([title]);
+            localStorage.setItem('메뉴',joson);
+            
+        } else{
+            // 주문 목록에 추가
+            const template = `
+                <li class="list" data-title="${title}">
+                    ${title}
+                    <span class="quantity">1</span> 개
+                </li>
+            `;
+            MenuList.innerHTML += template;
+        }
 
-
-    for(let i = 0 ; i < products.length; i++) {
-        orderButton[i].addEventListener("click" , handleClickOrderButton);
-        orderButton[i].setAttribute('data-index', i); // 각 버튼에 인덱스 값을 설정하기
-    }
+    };
     productsButton.addEventListener("click" , handleClickPruductButton);
+    for(let i = 0 ; i < products.length; i++) {
+        orderButton[i].setAttribute('data-index', i); // 각 버튼에 인덱스 값을 설정하기
+        orderButton[i].addEventListener("click" , handleClickOrderButton);
+    }
 
 
 
