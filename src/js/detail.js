@@ -89,14 +89,24 @@ function App() {
 //주문 하기 버튼 
     const orderButton = document.querySelectorAll(".order");
     const MenuList = document.querySelector(".shopping-list-box");
+    let menu = {
+        메뉴 : []
+    }
+    const setMenu = (menu) => {
+        localStorage.setItem('menu' , JSON.stringify(menu));
+    }
+    
+    //로컬의 정보를 읽어올 역할을 해줄 함수
+    const getMenu = () => {
+        return JSON.parse(localStorage.getItem('menu'));
+    }
+
     
     const handleClickOrderButton = (event) => {
-        let menu = [];
         const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
         const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
 
         const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
-
         // 이미 주문 목록에 동일한 제품이 있는지 확인해서 맞으면 if문 실행 아니면 else문 실행
         if (existingItem) {
             //아래 span 요소 가져오기 
@@ -106,13 +116,12 @@ function App() {
             quantityElement.textContent = quantity + 1; // 수량 증가
             
         } else{
-            const joson = JSON.stringify([title]);
-            localStorage.setItem('메뉴',joson);
-            const getMenu = localStorage.getItem('메뉴');
+            menu['메뉴'].push({name: title});
+            setMenu(menu);
             // 주문 목록에 추가
             const template = `
                 <li class="list" data-title="${title}">
-                    ${JSON.parse(getMenu)}
+                    ${title}
                     <span class="quantity">1</span> 개
                 </li>
             `;
@@ -121,12 +130,12 @@ function App() {
         }
 
     };
+
     productsButton.addEventListener("click" , handleClickPruductButton);
     for(let i = 0 ; i < products.length; i++) {
         orderButton[i].setAttribute('data-index', i); // 각 버튼에 인덱스 값을 설정하기
         orderButton[i].addEventListener("click" , handleClickOrderButton);
     }
-
 
 
     //-----------------selecter----------------------------------------
@@ -168,6 +177,7 @@ function App() {
     }
     //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
     select[0].addEventListener("input" , hadleClickOption);
+
 }
 
 App();
