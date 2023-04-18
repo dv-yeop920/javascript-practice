@@ -106,16 +106,18 @@ function App() {
             quantityElement.textContent = quantity + 1; // 수량 증가
             
         } else{
+            const joson = JSON.stringify([title]);
+            localStorage.setItem('메뉴',joson);
+            const getMenu = localStorage.getItem('메뉴');
             // 주문 목록에 추가
             const template = `
                 <li class="list" data-title="${title}">
-                    ${title}
+                    ${JSON.parse(getMenu)}
                     <span class="quantity">1</span> 개
                 </li>
             `;
             MenuList.innerHTML += template;
-            const joson = JSON.stringify([title]);
-            localStorage.setItem('메뉴',joson);
+            
         }
 
     };
