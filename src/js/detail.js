@@ -104,8 +104,6 @@ function App() {
             //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
             const quantity = parseInt(quantityElement.textContent);
             quantityElement.textContent = quantity + 1; // 수량 증가
-            const joson = JSON.stringify([title]);
-            localStorage.setItem('메뉴',joson);
             
         } else{
             // 주문 목록에 추가
@@ -116,6 +114,8 @@ function App() {
                 </li>
             `;
             MenuList.innerHTML += template;
+            const joson = JSON.stringify([title]);
+            localStorage.setItem('메뉴',joson);
         }
 
     };
