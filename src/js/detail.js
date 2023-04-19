@@ -113,6 +113,8 @@ function App() {
             const quantityElement = existingItem.querySelector('.quantity');
             //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
             const quantity = parseInt(quantityElement.textContent);
+            menu['메뉴'].push({name: title});
+            setMenu(menu);
             quantityElement.textContent = quantity + 1; // 수량 증가
             
         } else{
