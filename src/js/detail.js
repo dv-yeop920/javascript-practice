@@ -2,7 +2,7 @@
 각각 card 에 상품명과 가격을 products 객체에서 데이터를 가져와 각각 다르게 표시해 준다
 */
 //상품 , 가격 데이터 객체
-function App() {
+
 
     const products = [
         { id : 0, price : 70000, title : 'Dress' },
@@ -35,7 +35,6 @@ function App() {
     }
 
     render();
-    
 
     //가격정렬 버튼
     const handleClickPruductButton = (event) => {
@@ -89,9 +88,7 @@ function App() {
 //주문 하기 버튼 
     const orderButton = document.querySelectorAll(".order");
     const MenuList = document.querySelector(".shopping-list-box");
-    let menu = {
-        메뉴 : []
-    }
+    let menu = []
     const setMenu = (menu) => {
         localStorage.setItem('menu' , JSON.stringify(menu));
     }
@@ -101,36 +98,56 @@ function App() {
         return JSON.parse(localStorage.getItem('menu'));
     }
 
+    function init() {
+        
+        if(getMenu()) {
+            menu = getMenu();
+            menu.map((item)=> {
+                MenuList.innerHTML += 
+                `<li class="list">
+                ${item}
+                <span class="quantity">1</span> 개
+            </li>`
+            });
+        }
+        
+    }
+
     
     const handleClickOrderButton = (event) => {
+
         const index = event.target.getAttribute('data-index'); // 클릭된 버튼의 인덱스 가져오기
         const title = products[index].title; // 인덱스에 해당하는 제품의 title 값 가져오기
 
         const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
+
+        const template = () => {
+            const list = `
+            <li class="list" data-title="${title}">
+                ${title}
+                <span class="quantity">1</span> 개
+            </li>`
+            MenuList.innerHTML += list;
+        }
+    
         // 이미 주문 목록에 동일한 제품이 있는지 확인해서 맞으면 if문 실행 아니면 else문 실행
         if (existingItem) {
             //아래 span 요소 가져오기 
             const quantityElement = existingItem.querySelector('.quantity');
             //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
             const quantity = parseInt(quantityElement.textContent);
-            menu['메뉴'].push({name: title});
+            menu.push(title);
             setMenu(menu);
+            console.log(getMenu());
             quantityElement.textContent = quantity + 1; // 수량 증가
             
-        } else{
-            menu['메뉴'].push({name: title});
+        } else {
+            menu.push(title);
             setMenu(menu);
+            console.log(getMenu());
             // 주문 목록에 추가
-            const template = `
-                <li class="list" data-title="${title}">
-                    ${title}
-                    <span class="quantity">1</span> 개
-                </li>
-            `;
-            MenuList.innerHTML += template;
-            
+            template();
         }
-
     };
 
     productsButton.addEventListener("click" , handleClickPruductButton);
@@ -179,10 +196,9 @@ function App() {
     }
     //select 태그는 input 과 유사한 속성을 가진 태그 이기 때문에 input , change 이벤트가 다 적용 된다.
     select[0].addEventListener("input" , hadleClickOption);
+    
 
-}
-
-App();
+    init();
 
 
 
