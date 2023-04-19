@@ -88,7 +88,9 @@
 //주문 하기 버튼 
     const orderButton = document.querySelectorAll(".order");
     const MenuList = document.querySelector(".shopping-list-box");
-    let menu = []
+
+    let menu = [];
+
     const setMenu = (menu) => {
         localStorage.setItem('menu' , JSON.stringify(menu));
     }
@@ -105,8 +107,8 @@
             menu.map((item)=> {
                 MenuList.innerHTML += 
                 `<li class="list">
-                ${item}
-                <span class="quantity">1</span> 개
+                ${item.name}
+                <span class="quantity">${item.quantity}</span> 개
             </li>`
             });
         }
@@ -121,11 +123,11 @@
 
         const existingItem = MenuList.querySelector(`[data-title="${title}"]`);
 
-        const template = () => {
+        const template = (quantity) => {
             const list = `
             <li class="list" data-title="${title}">
                 ${title}
-                <span class="quantity">1</span> 개
+                <span class="quantity">${quantity}</span> 개
             </li>`
             MenuList.innerHTML += list;
         }
@@ -135,18 +137,20 @@
             //아래 span 요소 가져오기 
             const quantityElement = existingItem.querySelector('.quantity');
             //span 요소의 text 를 변수에 담고 누를때 마다 기존 text + 1 이 count 되도록 함.
-            const quantity = parseInt(quantityElement.textContent);
-            menu.push(title);
+            const addQuantity = parseInt(quantityElement.textContent) + 1;
+            quantityElement.textContent = addQuantity; // 수량 증가
+
+            const newQuantity = menu.find(item => item.name === title);
+            newQuantity.quantity++;
             setMenu(menu);
             console.log(getMenu());
-            quantityElement.textContent = quantity + 1; // 수량 증가
             
         } else {
-            menu.push(title);
+            menu.push({name:title , quantity: 1});
             setMenu(menu);
             console.log(getMenu());
             // 주문 목록에 추가
-            template();
+            template(1);
         }
     };
 
