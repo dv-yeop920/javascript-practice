@@ -1,0 +1,23 @@
+.grey {
+    background-color: aliceblue;
+    height: 1000vh;
+    margin-top: 500px;
+}
+
+.img {
+    float:right;
+    width: 1000px;
+    height: 1000px;
+    position: sticky;
+    top: 0px;
+}
+img {
+    float: right;
+    width: 500px;
+    height: 500px;
+}
+
+.text {
+    float: left;
+    width: 400px;
+}
