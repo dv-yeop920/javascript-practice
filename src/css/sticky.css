@@ -1,13 +1,28 @@
 .grey {
     background-color: aliceblue;
-    height: 1000vh;
+    height: 300vh;
     margin-top: 500px;
+}
+
+.card-background {
+    background-color: coral;
+    height: 300vh;
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-box {
+    position: sticky;
+    top: 50px;
 }
 
 .img {
     float:right;
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
     position: sticky;
     top: 0px;
 }
