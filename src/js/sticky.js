@@ -1,0 +1,30 @@
+
+
+function handleScrollWindow() {
+    const imgCard = document.querySelectorAll(".img-card");
+    const scroll = window.scrollY
+    console.log(scroll);
+
+    if(window.scrollY >  3580) {
+        imgCard[0].classList.add("hide");
+        imgCard[0].classList.remove("show");
+    }else {
+        imgCard[0].classList.remove("hide");
+        imgCard[0].classList.add("show");
+    }
+    
+    if(window.scrollY >  4380) {
+        imgCard[1].classList.add("hide");
+        imgCard[1].classList.remove("show");
+    }else {
+        imgCard[1].classList.remove("hide");
+        imgCard[1].classList.add("show");
+    }
+
+}
+
+
+
+
+
+window.addEventListener("scroll" , handleScrollWindow)

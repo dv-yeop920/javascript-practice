@@ -6,7 +6,7 @@
 
 .card-background {
     background-color: coral;
-    height: 300vh;
+    height: 400vh;
     margin-top: 300px;
     display: flex;
     flex-direction: column;
@@ -17,6 +17,8 @@
 .card-box {
     position: sticky;
     top: 50px;
+    margin-top: 250px;
+    opacity: 1;
 }
 
 .img {
@@ -35,4 +37,14 @@ img {
 .text {
     float: left;
     width: 400px;
+}
+
+.hide {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.show {
+    opacity: 1;
+    transition: all 0.5s;
 }
