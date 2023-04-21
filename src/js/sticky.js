@@ -6,7 +6,7 @@ function handleScrollWindow() {
     let scroll = window.scrollY;
     console.log(scroll);
 
-    if(window.scrollY > 3780) {
+    if(window.scrollY > 3680) {
         imgCard[0].classList.add("hide");
         imgCard[0].classList.add("small");
         imgCard[0].classList.remove("show");
@@ -16,7 +16,7 @@ function handleScrollWindow() {
         imgCard[0].classList.add("show");
     }
     
-    if(window.scrollY >  4480) {
+    if(window.scrollY >  4380) {
         imgCard[1].classList.add("hide");
         imgCard[1].classList.add("small");
         imgCard[1].classList.remove("show");
