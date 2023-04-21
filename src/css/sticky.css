@@ -32,6 +32,7 @@ img {
     float: right;
     width: 500px;
     height: 500px;
+    transition: all 1s;
 }
 
 .text {
@@ -41,10 +42,16 @@ img {
 
 .hide {
     opacity: 0;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 
 .show {
     opacity: 1;
-    transition: all 0.5s;
+    transition: all 1s;
+}
+
+.small {
+    width: 400px;
+    height: 400px;
+    transition: all 1s;
 }
