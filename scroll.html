@@ -55,7 +55,7 @@
     let count = 0;
     window.onscroll = function() {
       console.log(window.innerHeight , window.scrollY,document.body.offsetHeight)
-      if(window.innerHeight + window.scrollY >= document.body.offsetHeight) { 
+      if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) { 
         setTimeout(function(){
           const addContent = document.createElement("div");
           addContent.classList.add("box")
