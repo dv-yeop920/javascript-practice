@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript">
+        window.onload = function() {
+            //TODO - 익명함수와 콜백함수 셋타임아웃 사용 해보기 
+            //NOTE - 함수 실행 했을 때 코드 실행 순서 콘솔로 출력 
+            console.log("1.로드 이벤트 발생");
+
+            const btn = document.querySelector("button");
+            const content = document.querySelector("#msg");
+
+            const onClickMessage = () => {
+                console.log("3. 클릭이벤트 발생");
+                const msg = "5.버튼 누른지 3초 지남";
+
+                setTimeout(() => {
+                    content.innerHTML = msg;
+                    console.log(msg);
+                } , 3000);
+
+                console.log("4.클릭 이벤트 처리 완료");
+            }
+
+            btn.addEventListener("click", onClickMessage);
+            console.log("2.로드 이벤트 처리 완료 ");
+        }
+    </script>
+</head>
+<body>
+    <h1>익명/콜백 함수 사용 예제</h1>
+    <input type="text">
+    <button>클릭</button>
+    <h1 id = "msg"></h1>
+</body>
+</html>

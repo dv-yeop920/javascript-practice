@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript">
+        //NOTE -  위에서 아래 순서로 로드 되는데 버튼이 로드 되지 않은 상태에서 버튼을 찾으려니 에러가남
+        //NOTE -  속성에 실행 될 코드 저장 하면 html 로드 된 후 실행 되기 때문에 에러발생 x
+        window.onload = function() {
+            console.log("hello javascript - 5");
+            //const button = document.querySelector("button");
+
+            //const onClickButton = (event) => {
+            //    console.log("hello button" , event.clientX , event.clientY);
+            //}
+
+            //button.addEventListener("click" , onClickButton);
+        }
+    </script>
+    <script src = "ex01-01.js"></script>
+    <script src = "ex01-02.js"></script>
+    <script src = "ex01-03.js"></script>
+    <script src = "ex01-04.js"></script>
+    <script src = "ex01-05.js"></script>
+    <script src = "ex01-06.js"></script>
+    <script src = "ex01-07.js"></script>
+    <script src = "ex01-09.js"></script>
+    <script src = "ex01-10.js"></script>
+    <script src = "ex01-11.js"></script>
+    <script src = "ex01-12.js"></script>
+    <script src = "ex01-13.js"></script>
+    <script src = "ex01-14.js"></script>
+    <script src = "ex01-15.js"></script>
+    <script src = "ex01-16.js"></script>
+    <script src = "ex01-17.js"></script>
+    <script src = "ex01-18.js"></script>
+    <script src = "ex01-19.js"></script>
+    <script src = "ex01-20.js"></script>
+    <script src = "ex01-21.js"></script>
+    <script src = "ex01-22.js"></script>
+    <script src = "ex01-23.js"></script>
+    <script src = "ex01-24.js"></script>
+</head>
+<body>
+    <h1>Hello World! - 1</h1>
+    <button 
+    type = "button">Click</button>
+
+    <script type = "text/javascript">
+        console.log("hello javascript - 4");
+
+        const button = document.querySelector("button");
+
+        const onClickButton = (event) => {
+            console.log("hello button" , event.clientX , event.clientY);
+        }
+
+        button.addEventListener("click" , onClickButton);
+    </script>
+</body>
+</html>
