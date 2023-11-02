@@ -13,7 +13,6 @@
         age?: number,
         //address?: string,
         //hobby?: string
-
         [etc: string]: string | number | undefined
     }
 

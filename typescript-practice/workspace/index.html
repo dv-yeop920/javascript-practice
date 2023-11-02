@@ -52,13 +52,12 @@
     <div class="main-contents">
       <section class="chapter chapter-open">
         <div class="chapter-title">
-        	<h3 tabindex="0">1강: 타입스크립트</h3>
+        	<h3 tabindex="0">1강: 타입스크립트 - 타입 정의</h3>
         	<button>예제목록 펼치기</button>
         </div>
         <section class="paragraph">
           <h4 class="paragraph-title">1.1 개발 환경 구축</h4>
           <ul>
-            <li><a href="dist/test.js">01-01 test</a></li>
             <li><a href="dist/ch01/ex01-01.js">01-01 개발 환경 확인</a></li>
           </ul>
         </section>
@@ -83,41 +82,69 @@
         <section class="paragraph">
           <h4 class="paragraph-title">1.4 인터페이스</h4>
           <ul>
-
-            <li><a href="dist/ch01/ex01-08-01.js">01-08-01 배열 생성</a></li>
-            <li><a href="dist/ch01/ex01-08-02.js">01-08-02 배열 생성</a></li>
-            <li><a href="dist/ch01/ex01-09.js">01-09 배열 메서드 push(), unshift(), pop(), shift()</a></li>
-            <li><a href="dist/ch01/ex01-10.js">01-10 배열로 Stack, Queue 구현</a></li>
-            <li><a href="dist/ch01/ex01-11.js">01-11 배열의 모든 요소 출력</a></li>
-            <li><a href="dist/ch01/ex01-12.js">01-12 유사 배열 객체</a></li>
-            <li><a href="dist/ch01/ex01-13.js">01-13 배열의 동적 프로퍼티 생성</a></li>
-            <li><a href="dist/ch01/ex01-14.js">01-14 delete 연산자를 이용한 배열 프로퍼티 삭제</a></li>
-            <li><a href="dist/ch01/ex01-15.js">01-15 splice() 메서드를 이용한 배열 프로퍼티 삭제</a></li>
+            <li><a href="dist/ch01/ex01-09.js">01-09 인터페이스로 객체의 타입 선언</a></li>
+            <li><a href="dist/ch01/ex01-10.js">01-10 인터페이스 사용 - 변수, 함수의 매개변수, 리턴타입</a></li>
+            <li><a href="dist/ch01/ex01-11.js">01-11 인터페이스 사용 - 클래스의 타입 지정</a></li>
+            <li><a href="dist/ch01/ex01-12.js">01-12 인터페이스 정의 - 객체의 속성과 메서드, 익명 함수, 선택적 속성, 읽기 전용 속성</a></li>
+            <li><a href="dist/ch01/ex01-13.js">01-13 인덱스 시그니처</a></li>
+            <li><a href="dist/ch01/ex01-13-01.js">01-13-01 인덱스 시그니처 - 배열</a></li>
+            <li><a href="dist/ch01/ex01-13-02.js">01-13-02 인덱스 시그니처 - 복합 객체</a></li>
+            <li><a href="dist/ch01/ex01-14.js">01-14 인터페이스 상속</a></li>
+            <li><a href="dist/ch01/ex01-15.js">01-15 인터페이스 상속 - 계층 구조</a></li>
+            <li><a href="dist/ch01/ex01-16.js">01-16 인터페이스 다중 상속</a></li>
+            <li><a href="dist/ch01/ex01-17.js">01-17 인터페이스 선언 병합</a></li>
           </ul>
         </section>
         <section class="paragraph">
-          <h4 class="paragraph-title">1.5 함수</h4>
+          <h4 class="paragraph-title">1.5 Enum</h4>
           <ul>
-            <li><a href="dist/ch01/ex01-16.js">01-16 함수 작성</a></li>
-            <li><a href="dist/ch01/ex01-17.js">01-17 Call by Value와 Call by Reference 차이</a></li>
-            <li><a href="dist/ch01/ex01-18.js">01-18 배열 메서드 reduce()</a></li>
+            <li><a href="dist/ch01/ex01-18.js">01-18 상수가 필요한 경우</a></li>
+            <li><a href="dist/ch01/ex01-19.js">01-19 상수 사용</a></li>
+            <li><a href="dist/ch01/ex01-19-01.js">01-19-01 상수를 그룹화</a></li>
+            <li><a href="dist/ch01/ex01-20.js">01-20 숫자형 Enum 사용</a></li>
+            <li><a href="dist/ch01/ex01-21.js">01-21 문자형 Enum 사용</a></li>
+            <li><a href="dist/ch01/ex01-22.js">01-22 const Enum</a></li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <div class="chapter-title">
+        	<h3 tabindex="0">2강: 타입스크립트 - 클래스, 모듈, 제네릭</h3>
+        	<button>예제목록 펼치기</button>
+        </div>
+        <section class="paragraph">
+          <h4 class="paragraph-title">2.1 클래스</h4>
+          <ul>
+            <li><a href="ch02/ex02-01.js">02-01 자바스크립트 클래스 정의</a></li>
+            <li><a href="dist/ch02/ex02-02.js">02-02 타입스크립트의 클래스</a></li>
+            <li><a href="dist/ch02/ex02-03.js">02-03 private 접근 지정자</a></li>
+            <li><a href="ch02/ex02-04.js">02-04 Private class fields</a></li>
           </ul>
         </section>
         <section class="paragraph">
-          <h4 class="paragraph-title">1.6 ECMA Script6</h4>
+          <h4 class="paragraph-title">2.2 모듈</h4>
           <ul>
-            <li><a href="ch01/ex01-19.js">01-19 변수 선언문 var, let, const</a></li>
-            <li><a href="ch01/ex01-20.js">01-20 Template literals</a></li>
-            <li><a href="ch01/ex01-21.js">01-21 구조 분해 할당(Destructuring assignment)</a></li>
-            <li><a href="ch01/ex01-22.js">01-22 기본값 매개변수(Default parameters)</a></li>
-            <li><a href="ch01/ex01-23.js">01-23 나머지 매개변수(Rest parameters)</a></li>
-            <li><a href="ch01/ex01-24.js">01-24 전개 연산자(Spread operator)</a></li>
+            <li><a href="ch02/ex02-05/module.html">02-05 자바스크립트 모듈</a></li>
+            <li><a href="ch02/ex02-06/module.html">02-06 타입스크립트 모듈</a></li>
+          </ul>
+        </section>
+        <section class="paragraph">
+          <h4 class="paragraph-title">2.3 제네릭</h4>
+          <ul>
+            <li><a href="dist/ch02/ex02-07.js">02-07 일반 함수</a></li>
+            <li><a href="dist/ch02/ex02-08.js">02-08 제네릭 함수</a></li>
+            <li><a href="dist/ch02/ex02-09.js">02-09 일반 인터페이스</a></li>
+            <li><a href="dist/ch02/ex02-10.js">02-10 제네릭 인터페이스</a></li>
+            <li><a href="dist/ch02/ex02-11.js">02-11 일반 클래스</a></li>
+            <li><a href="dist/ch02/ex02-12.js">02-12 제네릭 클래스</a></li>
+            <li><a href="dist/ch02/ex02-12-01.js">02-12 제네릭 클래스</a></li>
+            <li><a href="dist/ch02/ex02-13.js">02-13 제네릭 타입 제약</a></li>
           </ul>
         </section>
       </section>
     </div>
     <footer class="footer">
-      <p>Copyrightⓒ Javascript. All rights reserved.</p>
+      <p>Copyrightⓒ Typescript. All rights reserved.</p>
     </footer>
   </div>
 </body>
